@@ -10,8 +10,6 @@
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-
   const auth = firebase.auth();
   function signUp(){
     
@@ -35,13 +33,14 @@
   function signOut(){
     auth.signOut();
     alert("Signed Out");
+    return window.location.href='index.html';
   }
 
   auth.onAuthStateChanged(function(user){
     if(user){
       var email = user.email;
-      alert("Active User " + email);
-      
+      // alert("Active User " + email);
+      return window.location.href='home_page.html';
       //Take user to a different or home page
 
       //is signed in
